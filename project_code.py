@@ -2,6 +2,8 @@ import json
 import requests
 import turtle
 
+"""this api links to the iss personel data"""
+
 url = 'http://api.open-notify.org/astros.json'
 response = requests.get(url)
 result = json.loads(json.dumps(response.json()))
@@ -10,6 +12,8 @@ print('people in Space: ', result['number'])
 people = result['people']
 for p in people:
     print(p['name'])
+
+"""this api requests location data for ISS"""
 
 url = 'http://api.open-notify.org/iss-now.json'
 response = requests.get(url)
@@ -21,6 +25,8 @@ lat = location['latitude']
 lon = location['longitude']
 print('latitude: ', lat)
 print('longitude: ', lon)
+
+"""this turtle module is used to pull web graphics for the ISS"""
 
 screen = turtle.Screen()
 screen.setup(720, 360)
